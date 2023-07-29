@@ -2,7 +2,7 @@ package main_test
 
 import (
 	"context"
-	"go_specs_greet"
+	"go_specs_greet/adapters/httpserver"
 	"go_specs_greet/specifications"
 	"net/http"
 	"testing"
@@ -40,6 +40,6 @@ func TestGreeterServer(t *testing.T) {
 		Timeout: 1 * time.Second,
 	}
 
-	driver := go_specs_greet.Driver{BaseURL: "http://localhost:8030", Client: &client}
+	driver := httpserver.Driver{BaseURL: "http://localhost:8030", Client: &client}
 	specifications.GreetSpecification(t, driver)
 }
