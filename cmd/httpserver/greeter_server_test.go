@@ -11,6 +11,9 @@ import (
 )
 
 func TestGreeterServer(t *testing.T) {
+	if testing.Short() {
+		t.Skip()
+	}
 	var (
 		port = "8030"
 		baseURL = fmt.Sprintf("http://localhost:%s", port)
